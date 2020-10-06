@@ -37,16 +37,23 @@ Output: [8, 9, 9, 9, 0, 0, 0, 1]
 #         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        def revers_to_int(ls):
-            s = ''
-            for i in ls:
-                s = str(i) + s
-            return int(s)
+        d = ListNode()
+        c = d
 
-        s = ListNode()
-        s.val = l1.val
-        for i in range(3):
-            r = l1.next.val
-            s.val.next = i
+        carry = 0
+        while l1 or l2 or carry:
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
 
-        return s  # revers_to_int(l1) + revers_to_int(l1)
+            # compute digit
+            val = v1 + v2 + carry
+            carry = val // 10
+            val %= 10
+            c.next = ListNode(val)
+
+            # update pointers
+            c = c.next
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+
+        return d.next
