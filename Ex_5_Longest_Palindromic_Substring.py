@@ -18,6 +18,26 @@ Example 4:
 Input: s = "ac"
 Output: "a"
 '''
+''' Time Error
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        max, cut = 0, ''
+        if len(s) <= 1:
+            cut, max = s, len(s)
+            return cut
+
+        elif s == s[::-1]:
+            cut, max = s, len(s)
+            return cut
+        else:
+            for i in range(1,len(s),1):
+                j = 0
+                while j < len(s):
+                    if s[j:j+i+1] == s[j:j+i+1][::-1]:
+                        if len(s[j:j + i + 1]) > max:
+                            cut, max = s[j:j+i+1], len(s[j:j+i+1])
+                    j+=1
+            return cut'''
 
 class Solution:
     def longestPalindrome(self, s):
