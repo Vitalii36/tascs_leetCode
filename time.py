@@ -3,31 +3,21 @@ import timeit
 code_to_test = """
 
 class Solution:
-    def convert(self, s, numRows):
-        result_list = []
-        for j in range(numRows):
-            letter_list,  num_list = [], []
-            k = 0
-            print(j, round(len(s)/(numRows-j+1)))
-            for i in range(round(len(s)/(numRows-j+1))):
-                letter_list.append(s[k:k+j+1])
-                num_list.append(k)
-                k+= numRows-j+1
-
-            for i, n in enumerate(num_list):
-                #print(n, i)
-                #print(s[n+i:])
-                s = s[:n-i]+s[n-i+1:]
-
-            result_list.append(letter_list)
-            print(letter_list, num_list, s)
-        return (result_list)
-
+    def reverse(self, x):
+        if x < 2147483647 and x > -2147483648:
+            s = ''
+            if x < 0:
+                s+= '-'
+                x*=-1
+            for i in range(len(str(x))-1,-1,-1):
+                s = s + str(x)[i]
+            return(int(s) if int(s) < 2147483647 and int(s) > -2147483648 else 0)
+        else:
+            return (0)
 
 result = Solution()
-s = "PAYPALISHIRING"
-num = 3
-print(result.convert(s, num))
+x = 1534236469
+print(result.reverse(x))
 """
 
 elapsed_time = timeit.timeit(code_to_test, number=10)/10
