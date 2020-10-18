@@ -4,16 +4,30 @@ code_to_test = """
 
 class Solution:
     def reverse(self, x):
-        if x < 2147483647 and x > -2147483648:
-            s = ''
-            if x < 0:
-                s+= '-'
-                x*=-1
-            for i in range(len(str(x))-1,-1,-1):
-                s = s + str(x)[i]
-            return(int(s) if int(s) < 2147483647 and int(s) > -2147483648 else 0)
-        else:
-            return (0)
+        i, num = 0, ''
+        s = s.strip().split(' ')[0]
+        while True:
+            try:
+                if s[i] != '-' and s[i] != '+':
+                    int(s[:i+1])
+                    num = s[:i+1]
+                    i+=1
+                else:
+                    i += 1
+            except:
+                break
+            if len(num) == len(s):
+                break
+        try:
+            snum =int(num)
+            if snum > 2147483647:
+                return 2147483647
+            elif snum < -2147483648:
+                return -2147483648
+            else:
+                return snum
+        except:
+            return(0)
 
 result = Solution()
 x = 1534236469
