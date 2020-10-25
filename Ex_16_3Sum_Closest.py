@@ -1,6 +1,15 @@
-import timeit
+'''Given an array nums of n integers and an integer target, find three
+integers in nums such that the sum is closest to target. Return the
+sum of the three integers. You may assume that each input would have
+exactly one solution.
 
-code_to_test = """
+Example 1:
+
+Input: nums = [-1,2,1,-4], target = 1
+Output: 2
+Explanation: The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).'''
+
+
 class Solution:
     def threeSumClosest(self, nums, target):
         min_diff, m_d_sum  = '', ''
@@ -34,7 +43,3 @@ ls = [-1,2,1,-4]
 target = 1
 
 print(result.threeSumClosest(ls, target))
-"""
-
-elapsed_time = timeit.timeit(code_to_test, number=10)/10
-print(elapsed_time)
