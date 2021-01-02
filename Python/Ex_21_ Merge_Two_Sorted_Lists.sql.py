@@ -1,4 +1,4 @@
-'''Merge two sorted linked lists and return it as a new sorted list.
+"""Merge two sorted linked lists and return it as a new sorted list.
 The new list should be made by splicing together the nodes of the
 first two lists.
 
@@ -13,7 +13,8 @@ Output: []
 Example 3:
 
 Input: l1 = [], l2 = [0]
-Output: [0]'''
+Output: [0]"""
+
 
 # Definition for singly-linked list.
 # class ListNode:
