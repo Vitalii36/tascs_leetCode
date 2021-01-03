@@ -49,3 +49,33 @@ sz.
 1 <= sz <= 5000
 0 <= Node.val <= 1000
 1 <= k <= sz"""
+
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseKGroup(self, head: ListNode, k: int) -> ListNode:
+        l = []
+
+        while (head):
+            l.append(head.val)
+            head = head.next
+
+        l2 = []
+        while l != []:
+            list = l[:k]
+            l = l[k:]
+            if len(list) == k:
+                list.reverse()
+            for i in list:
+                l2.append(i)
+
+        i = ListNode()
+        temp = i
+        for j in l2:
+            i.next = ListNode(j)
+            i = i.next
+        return temp.next
