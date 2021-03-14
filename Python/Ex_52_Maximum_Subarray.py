@@ -20,21 +20,19 @@ Output: 23
 
 class Solution:
     def maxSubArray(self, nums):
-        max = sum(nums)
-        while len(nums) > 1:
-            if sum(nums[:-1]) < sum(nums[1:]):
-                if max < sum(nums[1:]):
-                    max = sum(nums[1:])
-                nums = nums[1:]
-            else:
-                if max < sum(nums[:-1]):
-                    max = sum(nums[:-1])
-                nums = nums[:-1]
+        max = -9999999
+        sum = 0
+        for n in nums:
+            sum += n
+            if sum > max:
+                max = sum
+            if sum < 0:
+                sum = 0
         return max
 
 
 result = Solution()
 
-nums = [1,2,-1,-2,2,1,-2,1,4,-5,4]
+nums = [-2,1,-3,4,-1,2,1,-5,4]
 
 print(result.maxSubArray(nums))
