@@ -36,5 +36,5 @@ class Solution:
 
 
 result = Solution()
-prices = [7,6,4,3,1]
+prices = [7, 6, 4, 3, 1]
 print(result.maxProfit(prices))
