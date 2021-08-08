@@ -56,5 +56,3 @@ class Solution:
             if root.left != None:
                 list_root.append(root.left)
         return res
-
-
