@@ -40,9 +40,6 @@ pos is -1 or a valid index in the linked-list.
 #         self.val = x
 #         self.next = None
 
-nodes = {}
-curr = head
-
 
 class Solution:
     def hasCycle(self, head: ListNode) -> bool:
