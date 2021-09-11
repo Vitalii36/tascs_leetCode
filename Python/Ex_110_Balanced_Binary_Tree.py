@@ -36,15 +36,19 @@ class TreeNode:
 class Solution:
     def isBalanced(self, root):
         def height(root):
-            if not root: return 0
+            if not root:
+                return 0
             left_height = height(root.left)
-            if left_height == -1: return -1
+            if left_height == -1:
+                return -1
             right_height = height(root.right)
-            if right_height == -1: return -1
+            if right_height == -1:
+                return -1
             return max(left_height, right_height) + 1 if abs(left_height - right_height) <= 1 else -1
+
         return height(root) != -1
 
 
 result = Solution()
-nums = [3,9,20,null,null,15,7]
+nums = [3, 9, 20, null, null, 15, 7]
 print(result.isBalanced(nums))
