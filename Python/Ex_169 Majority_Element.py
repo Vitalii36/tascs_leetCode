@@ -18,7 +18,8 @@ Output: 2
 
 class Solution:
     def majorityElement(self, nums):
-        d = {nums.count(i): i for i in nums}
+        new_nums = list(set(nums))
+        d = {nums.count(i): i for i in new_nums}
         max_count = max(d.keys())
         return d[max_count]
 
