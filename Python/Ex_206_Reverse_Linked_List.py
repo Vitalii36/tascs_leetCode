@@ -38,3 +38,16 @@ class Solution:
             cur = nxt
             head = prev
         return head
+
+        # def rev(head):
+        #     if not head or not head.next:
+        #         return (head, head)
+        #
+        #     newh, tail = rev(head.next)
+        #     tail.next = head
+        #     tail = head
+        #     head.next = None
+        #     return (newh, tail)
+        #
+        # newh, tail = rev(head)
+        # return newh
