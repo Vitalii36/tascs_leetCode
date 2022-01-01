@@ -24,7 +24,6 @@ Constraints:
 class Solution:
     def isPerfectSquare(self, num: int) -> bool:
         a = int((len(str(num)) // 2 + len(str(num)) % 2) * '9')
-        print('a = >', a)
         while a != 0:
             if a * a == num:
                 return True
