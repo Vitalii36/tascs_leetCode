@@ -29,9 +29,12 @@ Constraints:
 
 
 class Solution:
-    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
-        return list(set(range(1,len(nums)+1)) - set(nums))
-
+    def hammingDistance(self, x: int, y: int) -> int:
+        xor_bit, res = x ^ y, 0
+        while xor_bit > 0:
+            xor_bit = xor_bit & (xor_bit - 1)
+            res += 1
+        return res
 
 result = Solution()
 x = 3
