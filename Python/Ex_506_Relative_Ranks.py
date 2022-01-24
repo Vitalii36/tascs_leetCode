@@ -40,10 +40,10 @@ All the values in score are unique.
 
 class Solution:
     def findRelativeRanks(self, score: List[int]) -> List[str]:
-        d, res, g = {v:i for i, v in enumerate(score)}, score.copy(),\
-                    {0:"Gold Medal",1:"Silver Medal",2:"Bronze Medal"}
+        d, res, g = {v: i for i, v in enumerate(score)}, score.copy(), \
+                    {0: "Gold Medal", 1: "Silver Medal", 2: "Bronze Medal"}
         res.sort()
         res.reverse()
         for i, v in enumerate(res):
-            score[d[v]] = g.get(i) if g.get(i) else str(i+1)
+            score[d[v]] = g.get(i) if g.get(i) else str(i + 1)
         return score
