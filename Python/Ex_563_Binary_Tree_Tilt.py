@@ -62,7 +62,7 @@ class Solution:
 
         def subtree_sum(root):
             if not root:
-                return 0;
+                return 0
             left = subtree_sum(root.left)
             right = subtree_sum(root.right)
             return left + right + root.val
