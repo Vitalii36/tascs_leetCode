@@ -36,8 +36,30 @@ nums is an ascending array that is possibly rotated.
 """
 
 
+# class Solution:
+#     def search(self, nums: List[int], target: int) -> int:
+#         if target not in nums:
+#             return -1
+#         return nums.index(target)
+
+
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        if target not in nums:
-            return -1
-        return nums.index(target)
+        l=0
+        h=len(nums)-1
+        m=(l+h)>>1
+        while l<=h:
+            if nums[m]==target:
+                return m
+            elif nums[m]>=nums[l]: #Left Half of Array
+                if target<=nums[m] and target>=nums[l]:
+                    h=m-1
+                else:
+                    l=m+1
+            else: #Right Half of Array
+                if target>=nums[m] and target<=nums[h]:
+                    l=m+1
+                else:
+                    h=m-1
+            m=(l+h)>>1
+        return -1
