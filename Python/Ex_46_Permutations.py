@@ -32,7 +32,6 @@ class Solution:
 
         def solve(nums, j):
             if j == n:
-                print(nums)
                 ans.append(nums[:])
             for i in range(j, n):
                 nums[i], nums[j] = nums[j], nums[i]
