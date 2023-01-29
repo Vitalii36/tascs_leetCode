@@ -34,8 +34,8 @@ class Solution:
             l = []
             for i in range(len(nums)):
                 m = nums[i]
-                remLst = nums[:i] + nums[i+1:]
-                for p in permutation(remLst):
+                rem_lst = nums[:i] + nums[i+1:]
+                for p in permutation(rem_lst):
                     l.append([m] + p)
             return l
         return permutation(nums)
