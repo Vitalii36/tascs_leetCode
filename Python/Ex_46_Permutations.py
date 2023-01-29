@@ -24,19 +24,34 @@ Constraints:
 All the integers of nums are unique.
 """
 
-
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        n = len(nums)
-        ans = []
+        def permutation(nums):
+            if len(nums) == 0:
+                return []
+            if len(nums) == 1:
+                return [nums]
+            l = []
+            for i in range(len(nums)):
+                m = nums[i]
+                remLst = nums[:i] + nums[i+1:]
+                for p in permutation(remLst):
+                    l.append([m] + p)
+            return l
+        return permutation(nums)
 
-        def solve(nums, j):
-            if j == n:
-                ans.append(nums[:])
-            for i in range(j, n):
-                nums[i], nums[j] = nums[j], nums[i]
-                solve(nums, j + 1)
-                nums[i], nums[j] = nums[j], nums[i]
-
-        solve(nums, 0)
-        return ans
+# class Solution:
+#     def permute(self, nums: List[int]) -> List[List[int]]:
+#         n = len(nums)
+#         ans = []
+#
+#         def solve(nums, j):
+#             if j == n:
+#                 ans.append(nums[:])
+#             for i in range(j, n):
+#                 nums[i], nums[j] = nums[j], nums[i]
+#                 solve(nums, j + 1)
+#                 nums[i], nums[j] = nums[j], nums[i]
+#
+#         solve(nums, 0)
+#         return ans
